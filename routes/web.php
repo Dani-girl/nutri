@@ -11,6 +11,6 @@
 |
 */
 
-Route::get('home', function () {
+Route::get('home', function () {mika mika
     return view('welcome');
 });
