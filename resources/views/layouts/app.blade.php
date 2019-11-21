@@ -1,4 +1,4 @@
-<!doctype html>
+ <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
@@ -19,13 +19,15 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body>
+<body data-spy="scroll" data-target=".navbar">
+    
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar @if(url()->current() == url('/')) fixed-top @endif navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
+                <a class="nav-link" href="{{ route('login') }}">{{ __('Join our team') }}</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -40,6 +42,24 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
+                            @if(url()->current() == url('/'))
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#home">{{ __('Home') }}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#about-us">{{ __('About us') }}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#meet-our-team">{{ __('Meet our nutritionists') }}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#blog">{{ __('Blog') }}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#testimonials">{{ __('Testimonials') }}</a>
+                            </li>
+                            @endif
+                            
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
@@ -71,10 +91,11 @@
                 </div>
             </div>
         </nav>
-
-        <main class="py-4">
+        @yield('body')
+        @yield('content')
+        <!-- <main class="py-4">
             @yield('content')
-        </main>
+        </main> -->
     </div>
 </body>
 </html>

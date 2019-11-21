@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Nutritionist extends Model
 {
     protected $fillable = [
-        'education', 'expertise', 'user_id'
+        'photo', 'education', 'expertise', 'diploma', 'experience', 'summary', 'user_id'
     ];
 
     public function user()

@@ -1,13 +1,12 @@
 @extends('layouts.app')
 
-@section('content')
+@section('body')
+<div class="register-bck">
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
-
-                <div class="card-body">
+            <div class="login-text-holder">
+                <div class="register-text">{{ __('Login') }}</div><br>
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
@@ -70,4 +69,9 @@
         </div>
     </div>
 </div>
+</div>
+@endsection
+
+@section('content')
+
 @endsection

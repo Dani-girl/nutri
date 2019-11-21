@@ -1,0 +1,96 @@
+@mixin text-style($weight, $size, $color:#000000, $align:center, $fstyle:normal){
+	text-align:$align;
+  	color: $color;
+	font:{
+		weight: $weight;
+		size: $size;
+		style: $fstyle;
+	}
+}
+
+@mixin bck-image-style($height, $url){
+	position: relative;
+	height:$height;
+	background:{
+		image: url($url);
+		color: #cccccc;
+		position: center;
+		repeat: no-repeat;
+		size: cover;
+	}
+}
+
+@mixin opacity-box($height, $transform:50%){
+	padding: 20px;
+	height: $height;
+	background: rgba(255, 255, 255, 0.7);
+	position: relative;
+	top: $transform;
+	transform: translateY($transform);
+}
+
+.welcome-header{
+	@include bck-image-style(580px, 'http://nutri.me/images/welcome-header.png');
+}
+
+.welcome-header-text-holder{
+	@include opacity-box(300px, 50%);
+	
+}
+
+.welcome-header-text{
+	h1{
+		@include text-style(normal, 5em);
+	}
+	p{
+		@include text-style(bold, 1.5em);
+	}
+}
+
+.header-title{
+	@include text-style(bold, 3em, $green);
+}
+
+.header-text{
+	@include text-style(normal, 1.2em, $align:justify);
+}
+
+.title{
+	text-align: center;
+	font:{
+		size: 3em;
+	}
+	color: $green;
+}
+
+.team-pics{
+	@include bck-image-style(350px, 'http://nutri.me/images/welcome-header.png');
+}
+
+.blog-img{
+	@include bck-image-style(250px, 'http://nutri.me/images/welcome-header.png');
+}
+
+.testimonial-name{
+	@include text-style(normal, 1.5em, black, $align:justify, $fstyle:italic);
+}
+
+.testimonial-text{
+	@include text-style(normal, 1.2em, #a6a6a6, $align:justify, $fstyle:italic);
+}
+
+.register-bck{
+	@include bck-image-style(100vh, 'http://nutri.me/images/register-background.jpg');
+}
+
+.register-text-holder{
+	@include opacity-box(28em, 10%);
+}
+
+.register-text{
+	@include text-style(normal, 2em);
+}
+
+.login-text-holder{
+	@include opacity-box(23em, 20%);
+}
