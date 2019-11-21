@@ -1,15 +1,15 @@
 @extends('layouts.app')
 
 @section('body')
-<div class="register-bck">
+<div class="nutritionist-request-bck">
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-                <div class="register-text-holder">
+                <div class="nutritionist-request-text-holder">
                     <div class="register-text">
-                        Register and start making a change
+                        Join our team of professional nutritionists and make an impact on people's lives.
                     </div><br>
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ url('nutritionist-request') }}">
                         @csrf
 
                         <div class="form-group row">
@@ -62,6 +62,54 @@
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                            <label for="photo" class="col-md-4 col-form-label text-md-right">{{ __('Photo') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="photo" type="text" class="form-control" name="photo" required autofocus>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="education" class="col-md-4 col-form-label text-md-right">{{ __('Education') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="education" type="text" class="form-control" name="education"  required autofocus>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="expertise" class="col-md-4 col-form-label text-md-right">{{ __('Expertise') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="expertise" type="text" class="form-control" name="expertise"  required autofocus>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="diploma" class="col-md-4 col-form-label text-md-right">{{ __('Diploma') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="diploma" type="text" class="form-control" name="diploma" required autofocus>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="experience" class="col-md-4 col-form-label text-md-right">{{ __('Experience') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="experience" type="text" class="form-control" name="experience"  required autofocus>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="summary" class="col-md-4 col-form-label text-md-right">{{ __('Summary') }}</label>
+
+                            <div class="col-md-6">
+                            	<textarea class="form-control" name="summary" id="summary"></textarea>
+                            </div>
+                        </div>
+
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
@@ -76,8 +124,4 @@
     </div>
 </div>
 </div>
-@endsection
-
-@section('content')
-
 @endsection

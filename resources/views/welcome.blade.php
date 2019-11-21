@@ -32,7 +32,7 @@
                 <div class="header-text">
                     <div class="team-pics"></div>
                     Ime i prezime<br>
-                    Opis
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                 </div>
                 
             </div>
@@ -40,14 +40,14 @@
                 <div class="header-text">
                     <div class="team-pics"></div>
                     Ime i prezime<br>
-                    Opis
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="header-text">
                     <div class="team-pics"></div>
                     Ime i prezime<br>
-                    Opis
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                 </div>
             </div>
             
@@ -61,7 +61,7 @@
     <div class="col-md-5 offset-md-2">
         <div class="header-text">
             Ime posta<br>
-            Opis<br>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<br>
             <a href="">Read more...</a>
         </div>
     </div>
@@ -73,7 +73,7 @@
     <div class="col-md-5 offset-md-2">
         <div class="header-text">
             Ime posta<br>
-           Opis<br>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<br>
             <a href="">Read more...</a>
         </div>
     </div>
@@ -83,7 +83,7 @@
     <div class="col-md-5 offset-md-2">
         <div class="header-text">
             Ime posta<br>
-            Opis<br>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<br>
             <a href="">Read more...</a>
         </div>
     </div>

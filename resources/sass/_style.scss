@@ -94,3 +94,11 @@
 .login-text-holder{
 	@include opacity-box(23em, 20%);
 }
+
+.nutritionist-request-bck{
+	@include bck-image-style(135vh, 'http://nutri.me/images/register-background.jpg');
+}
+
+.nutritionist-request-text-holder{
+	@include opacity-box(52em,3%);
+}

@@ -11232,3 +11232,23 @@ a.text-dark:focus {
           transform: translateY(20%);
 }
 
+.nutritionist-request-bck {
+  position: relative;
+  height: 135vh;
+  background-image: url("http://nutri.me/images/register-background.jpg");
+  background-color: #cccccc;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.nutritionist-request-text-holder {
+  padding: 20px;
+  height: 52em;
+  background: rgba(255, 255, 255, 0.7);
+  position: relative;
+  top: 3%;
+  -webkit-transform: translateY(3%);
+          transform: translateY(3%);
+}
+

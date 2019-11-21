@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\NutritionistRequest;
+use Illuminate\Support\Facades\Hash;
 
 class NutritionistRequestsController extends Controller
 {
     public function create(){
-
+    	return view('auth.join-our-team');
     }
 
     protected function store(Request $request){

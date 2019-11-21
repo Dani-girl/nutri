@@ -18,4 +18,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('waiting-for-approval', function (){
+	return view('waiting-for-approval');
+});
 
+Route::get('join-our-team', 'NutritionistRequestsController@create');
+Route::post('nutritionist-request', 'NutritionistRequestsController@store');
