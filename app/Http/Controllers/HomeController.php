@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\CustomClasses\Roles;
 
 class HomeController extends Controller
 {
@@ -13,7 +14,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        //$this->middleware('auth');
+        $this->middleware('auth');
     }
 
     /**
@@ -23,6 +24,15 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $role = auth()->user()->role;
+        $home = '';
+        if($role==Roles::ADMIN || $role == Roles::SUPERADMIN){
+            $home = view('pages.admin.home');
+        }else if($role==Roles::NUTRITIONIST){
+            $home = view('pages.nutritionist.home');
+        }else{
+            $home = view('pages.client.home');
+        }
+        return $home;
     }
 }

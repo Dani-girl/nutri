@@ -1,0 +1,12 @@
+.admin-panel{
+	background-image: url('http://nutri.me/images/admin-gren.jpg');
+	height: 100vh;
+}
+
+.nutritionist-requests-holder{
+	@include opacity-box(80vh, 5%);
+}
+
+.nutri-request-text{
+	@include text-style(normal, 1.5em);
+}

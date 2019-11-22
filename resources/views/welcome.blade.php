@@ -70,7 +70,7 @@
 <br>
 <div class="row">
     <div class="col-md-5 blog-img"></div>
-    <div class="col-md-5 offset-md-2">
+    <div class="col-md-5">
         <div class="header-text">
             Ime posta<br>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<br>

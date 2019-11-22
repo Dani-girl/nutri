@@ -1,0 +1,30 @@
+@mixin text-style($weight, $size, $color:#000000, $align:center, $fstyle:normal){
+	text-align:$align;
+  	color: $color;
+	font:{
+		weight: $weight;
+		size: $size;
+		style: $fstyle;
+	}
+}
+
+@mixin bck-image-style($height, $url){
+	position: relative;
+	height:$height;
+	background:{
+		image: url($url);
+		color: #cccccc;
+		position: center;
+		repeat: no-repeat;
+		size: cover;
+	}
+}
+
+@mixin opacity-box($height, $transform:50%){
+	padding: 20px;
+	height: $height;
+	background: rgba(255, 255, 255, 0.7);
+	position: relative;
+	top: $transform;
+	transform: translateY($transform);
+}

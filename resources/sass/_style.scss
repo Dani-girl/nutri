@@ -1,33 +1,4 @@
-@mixin text-style($weight, $size, $color:#000000, $align:center, $fstyle:normal){
-	text-align:$align;
-  	color: $color;
-	font:{
-		weight: $weight;
-		size: $size;
-		style: $fstyle;
-	}
-}
 
-@mixin bck-image-style($height, $url){
-	position: relative;
-	height:$height;
-	background:{
-		image: url($url);
-		color: #cccccc;
-		position: center;
-		repeat: no-repeat;
-		size: cover;
-	}
-}
-
-@mixin opacity-box($height, $transform:50%){
-	padding: 20px;
-	height: $height;
-	background: rgba(255, 255, 255, 0.7);
-	position: relative;
-	top: $transform;
-	transform: translateY($transform);
-}
 
 .welcome-header{
 	@include bck-image-style(580px, 'http://nutri.me/images/welcome-header.png');
@@ -96,7 +67,7 @@
 }
 
 .nutritionist-request-bck{
-	@include bck-image-style(135vh, 'http://nutri.me/images/register-background.jpg');
+	@include bck-image-style(140vh, 'http://nutri.me/images/register-background.jpg');
 }
 
 .nutritionist-request-text-holder{

@@ -11234,7 +11234,7 @@ a.text-dark:focus {
 
 .nutritionist-request-bck {
   position: relative;
-  height: 135vh;
+  height: 140vh;
   background-image: url("http://nutri.me/images/register-background.jpg");
   background-color: #cccccc;
   background-position: center;
@@ -11250,5 +11250,28 @@ a.text-dark:focus {
   top: 3%;
   -webkit-transform: translateY(3%);
           transform: translateY(3%);
+}
+
+.admin-panel {
+  background-image: url("http://nutri.me/images/admin-gren.jpg");
+  height: 100vh;
+}
+
+.nutritionist-requests-holder {
+  padding: 20px;
+  height: 80vh;
+  background: rgba(255, 255, 255, 0.7);
+  position: relative;
+  top: 5%;
+  -webkit-transform: translateY(5%);
+          transform: translateY(5%);
+}
+
+.nutri-request-text {
+  text-align: center;
+  color: #000000;
+  font-weight: normal;
+  font-size: 1.5em;
+  font-style: normal;
 }
 

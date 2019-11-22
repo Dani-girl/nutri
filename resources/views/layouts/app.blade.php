@@ -27,7 +27,9 @@
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
+                @guest
                 <a class="nav-link" href="{{ url('join-our-team') }}">{{ __('Join our team') }}</a>
+                @endguest
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -43,23 +45,27 @@
                         <!-- Authentication Links -->
                         @guest
                             @if(url()->current() == url('/'))
-                            <li class="nav-item">
-                                <a class="nav-link active" href="#home">{{ __('Home') }}</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#about-us">{{ __('About us') }}</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#meet-our-team">{{ __('Meet our nutritionists') }}</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#blog">{{ __('Blog') }}</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#testimonials">{{ __('Testimonials') }}</a>
-                            </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#home">{{ __('Home') }}</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#about-us">{{ __('About us') }}</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#meet-our-team">{{ __('Meet our nutritionists') }}</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#blog">{{ __('Blog') }}</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#testimonials">{{ __('Testimonials') }}</a>
+                                </li>
                             @endif
-                            
+                            @if(url()->current() != url('/'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ url('/') }}">{{ __('Home') }}</a>
+                                </li>
+                            @endif
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
@@ -69,6 +75,38 @@
                                 </li>
                             @endif
                         @else
+                            @if(Auth::user()->role=='admin' || Auth::user()->role=='super-admin')
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ url('nutritionist-requests') }}">Requests</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="">Admins</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="">Nutritionists</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="">Clients</a>
+                                </li>
+                            @elseif(Auth::user()->role=='nutritionist')
+                                <li class="nav-item">
+                                    <a class="nav-link" href="">My profile</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="">Requests board</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="">Meals list</a>
+                                </li>
+                            @elseif(Auth::user()->role=='client')
+                                <li class="nav-item">
+                                    <a class="nav-link" href="">My diet</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="">My profile</a>
+                                </li>
+                            @endif
+
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>

@@ -22,5 +22,7 @@ Route::get('waiting-for-approval', function (){
 	return view('waiting-for-approval');
 });
 
+Route::get('nutritionist-requests', 'NutritionistRequestsController@index');
 Route::get('join-our-team', 'NutritionistRequestsController@create');
 Route::post('nutritionist-request', 'NutritionistRequestsController@store');
+Route::get('nutritionist-request/{request}', 'NutritionistRequestsController@show');
