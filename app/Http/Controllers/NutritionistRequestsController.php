@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\CustomClasses\Roles;
 use App\NutritionistRequest;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\NewRequest;
+use App\Mail\DeletedNutritionistRequest;
 
 class NutritionistRequestsController extends Controller
 {
@@ -26,7 +29,7 @@ class NutritionistRequestsController extends Controller
         ]);
         
         $data = (object) $request;
-        $tobe = NutritionistRequest::create([
+        $request = NutritionistRequest::create([
             'name'      => $data['name'],
             'email'     => $data['email'],
             'password'  => Hash::make($data['password']),
@@ -37,29 +40,29 @@ class NutritionistRequestsController extends Controller
             'experience'=> $data['experience'],
             'summary'	=> $data['summary']
         ]);
-        //Mail::send(new NewRequest($tobe));
+
+        //Mail::send(new NewRequest($request));
+
         return redirect('waiting-for-approval')->with('status', "Waiting for admin's approval!");
     }
 
-    // protected function showTobeWL($id){
-    //     $tobe = Tobe::find($id);
-    //     $role = auth() -> user() -> isAdmin;
-
-    //     if( $role !== Roles::ADMIN && $role !== Roles::SUPERADMIN){
-    //         return redirect('/home') -> with('error', 'Unauthorized Page');
-    //     }
-
-    //     return view('auth.showwl')->with('tobe', $tobe);
-    // }
-
     public function show($id){
         $request = NutritionistRequest::find($id);
-        $role = auth() -> user() -> isAdmin;
+        $role = auth() -> user() -> role;
 
         // if( $role !== Roles::ADMIN && $role !== Roles::SUPERADMIN){
         //     return redirect('/home') -> with('error', 'Unauthorized Page');
         // }
 
         return view('pages.admin.show_nutritionist_request')->with(compact('request'));
+    }
+
+    public function destroy(Request $request){
+        $nutritionist_request = NutritionistRequest::find($request->id);
+
+        //Mail::send(new DeletedNutritionistRequest($nutritionist_request));
+        
+        $nutritionist_request->delete();
+        return redirect('nutritionist-requests')->with('status', 'Deleted succesfully!');
     }
 }

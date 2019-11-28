@@ -9,7 +9,7 @@
                     <div class="register-text">
                         Join our team of professional nutritionists and make an impact on people's lives.
                     </div><br>
-                    <form method="POST" action="{{ url('nutritionist-request') }}">
+                    <form method="POST" action="{{ url('nutritionist-requests') }}">
                         @csrf
 
                         <div class="form-group row">

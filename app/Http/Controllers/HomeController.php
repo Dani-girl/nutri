@@ -30,8 +30,10 @@ class HomeController extends Controller
             $home = view('pages.admin.home');
         }else if($role==Roles::NUTRITIONIST){
             $home = view('pages.nutritionist.home');
-        }else{
+        }else if($role==Roles::CLIENT){
             $home = view('pages.client.home');
+        }else{
+            $home = view('welcome');
         }
         return $home;
     }

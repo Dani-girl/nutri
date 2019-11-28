@@ -11252,6 +11252,10 @@ a.text-dark:focus {
           transform: translateY(3%);
 }
 
+.inline {
+  display: inline-block;
+}
+
 .admin-panel {
   background-image: url("http://nutri.me/images/admin-gren.jpg");
   height: 100vh;

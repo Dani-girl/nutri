@@ -15,7 +15,7 @@
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="nutri-request-text">
-                Here you can see nutritionists that signed up, you can approve them, delete the request, or email the nutritionist for more details.
+                Here you can see all hired nutritionists, you can contact them, delete them.
             </div>
             <br>
             <table class="table table-dark">
@@ -23,17 +23,17 @@
                     <tr>
                       <th scope="col">Name</th>
                       <th scope="col">Expertise</th>
-                      <th scope="col">Date of request</th>
+                      <th scope="col">Nutritionist since</th>
                       <th scope="col">Action</th>
                     </tr>
                   </thead>
                   <tbody>
-                    @foreach($requests as $request)
+                    @foreach($nutritionists as $nutritionist)
                     <tr>
-                      <th scope="row">{{$request->name}}</th>
-                      <td>{{$request->expertise}}</td>
-                      <td>{{$request->created_at}}</td>
-                      <td><a href="{{ url('nutritionist-requests',[$request->id])}}" class="btn btn-primary">Details</a></td>
+                      <td>{{$nutritionist->user->name}}</td>
+                      <td>{{$nutritionist->expertise}}</td>
+                      <td>{{$nutritionist->created_at}}</td>
+                      <td><a href="{{ url('nutritionists',[$nutritionist->id])}}" class="btn btn-primary">Details</a></td>
                     </tr>
                     @endforeach
                   </tbody>

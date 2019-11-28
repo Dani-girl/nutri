@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+     return view('welcome');
 });
 
 Auth::routes();
@@ -24,5 +24,11 @@ Route::get('waiting-for-approval', function (){
 
 Route::get('nutritionist-requests', 'NutritionistRequestsController@index');
 Route::get('join-our-team', 'NutritionistRequestsController@create');
-Route::post('nutritionist-request', 'NutritionistRequestsController@store');
-Route::get('nutritionist-request/{request}', 'NutritionistRequestsController@show');
+Route::post('nutritionist-requests', 'NutritionistRequestsController@store');
+Route::get('nutritionist-requests/{request}', 'NutritionistRequestsController@show');
+Route::delete('nutritionist-requests/{request}', 'NutritionistRequestsController@destroy');
+
+Route::get('nutritionists', 'NutritionistsController@index');
+Route::post('nutritionists', 'NutritionistsController@store');
+Route::get('nutritionists/{nutritionist}', 'NutritionistsController@show');
+Route::delete('nutritionists', 'NutritionistsController@destroy');

@@ -15,58 +15,58 @@
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="nutri-request-text">
-                You are looking at detailed nutritionist request.
+                You are looking at nutritionist {{$nutritionist->user->name}}'s details.
             </div>
             <br>
             <table class="table table-bordered table-dark">
               <tbody>
                 <tr>
                   <th scope="row">Request created at:</th>
-                  <td colspan="10">{{$request->created_at}}</td>
+                  <td colspan="10">{{$nutritionist->created_at}}</td>
                 </tr>
                 <tr>
                   <th scope="row">Name:</th>
-                  <td colspan="10">{{$request->name}}</td>
+                  <td colspan="10">{{$nutritionist->user->name}}</td>
                 </tr>
                 <tr>
                   <th scope="row">E-mail:</th>
-                  <td>{{$request->email}}</td>
+                  <td>{{$nutritionist->user->email}}</td>
                 </tr>
                 <tr>
                   <th scope="row">Photo:</th>
-                  <td colspan="10">{{$request->photo}}</td>
+                  <td colspan="10">{{$nutritionist->photo}}</td>
                 </tr>
                 <tr>
                   <th scope="row">Education:</th>
-                  <td>{{$request->education}}</td>
+                  <td>{{$nutritionist->education}}</td>
                 </tr>
                 <tr>
                   <th scope="row">Expertise:</th>
-                  <td colspan="10">{{$request->expertise}}</td>
+                  <td colspan="10">{{$nutritionist->expertise}}</td>
                 </tr>
                 <tr>
                   <th scope="row">Diploma:</th>
-                  <td>{{$request->diploma}}</td>
+                  <td>{{$nutritionist->diploma}}</td>
                 </tr>
                 <tr>
                   <th scope="row">Experience:</th>
-                  <td colspan="10">{{$request->experience}}</td>
+                  <td colspan="10">{{$nutritionist->experience}}</td>
                 </tr>
                 <tr>
                   <th scope="row">Summary:</th>
-                  <td>{{$request->summary}}</td>
+                  <td>{{$nutritionist->summary}}</td>
                 </tr>
               </tbody>
             </table>
-            <form class="inline" action="{{url('nutritionists')}}" method="POST">
+            <form class="inline" action="{{url('contact-nutritionist')}}" method="POST">
              @csrf
-             <input type="hidden" name="id" value="{{$request->id}}">
-             <input type="submit" class="btn btn-primary" value="Approve"/>
+             <input type="hidden" name="id" value="{{$nutritionist->id}}">
+             <input type="submit" class="btn btn-primary" value="Contact"/>
             </form>
-            <form class="inline" action="{{url('nutritionist-requests', [$request->id])}}" method="POST">
+            <form class="inline" action="{{url('nutritionists', [$nutritionist->id])}}" method="POST">
              {{method_field('DELETE')}}
              @csrf
-             <input type="hidden" name="id" value="{{$request->id}}">
+             <input type="hidden" name="id" value="{{$nutritionist->id}}">
              <input type="submit" class="btn btn-danger" value="Delete"/>
             </form>
         </div>

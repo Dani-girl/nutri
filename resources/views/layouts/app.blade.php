@@ -75,20 +75,26 @@
                                 </li>
                             @endif
                         @else
-                            @if(Auth::user()->role=='admin' || Auth::user()->role=='super-admin')
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ url('nutritionist-requests') }}">Requests</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="">Admins</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="">Nutritionists</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="">Clients</a>
-                                </li>
-                            @elseif(Auth::user()->role=='nutritionist')
+                            <li class="nav-item">
+                                <a class="nav-link active" href="{{ url('/') }}">{{ __('Home') }}</a>
+                            </li>
+                            @if(Auth::user()->role<2)
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                      Lists
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                      <a class="dropdown-item" href="{{ url('nutritionist-requests') }}">
+                                      Requests</a>
+                                      <a class="dropdown-item" href="{{ url('nutritionists') }}">Nutritionists</a>
+                                      <a class="dropdown-item" href="{{ url('clients') }}">Clients</a>
+                                      @if(Auth::user()->role==0)
+                                      <div class="dropdown-divider"></div>
+                                      <a class="dropdown-item" href="{{ url('admins') }}">Admins</a>
+                                      @endif
+                                    </div>
+                                  </li>
+                            @elseif(Auth::user()->role==3)
                                 <li class="nav-item">
                                     <a class="nav-link" href="">My profile</a>
                                 </li>
@@ -98,7 +104,7 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="">Meals list</a>
                                 </li>
-                            @elseif(Auth::user()->role=='client')
+                            @else
                                 <li class="nav-item">
                                     <a class="nav-link" href="">My diet</a>
                                 </li>
