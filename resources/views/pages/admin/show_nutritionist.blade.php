@@ -21,7 +21,7 @@
             <table class="table table-bordered table-dark">
               <tbody>
                 <tr>
-                  <th scope="row">Request created at:</th>
+                  <th scope="row">Nutritionist since:</th>
                   <td colspan="10">{{$nutritionist->created_at}}</td>
                 </tr>
                 <tr>

@@ -99,14 +99,14 @@
                                     <a class="nav-link" href="">My profile</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="">Requests board</a>
+                                    <a class="nav-link" href="{{ url('diet-requests') }}">Requests board</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="">Meals list</a>
+                                    <a class="nav-link" href="{{ url('meals') }}">Meals list</a>
                                 </li>
                             @else
                                 <li class="nav-item">
-                                    <a class="nav-link" href="">My diet</a>
+                                    <a class="nav-link" href="{{ url('my-diet-query') }}">My diet</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="">My profile</a>

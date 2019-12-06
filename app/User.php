@@ -37,8 +37,12 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
     
-    public function admin()
+    public function nutritionist()
     {
-        return $this->hasOne('App\Admin');
+        return $this->hasOne('App\Nutritionist');
+    }
+
+    public function allergy(){
+        return $this->belongsToMany('App\Allergy');
     }
 }

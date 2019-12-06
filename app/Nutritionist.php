@@ -14,4 +14,8 @@ class Nutritionist extends Model
 	{
 	    return $this->belongsTo('App\User');
 	}
+
+	public function meal(){
+		return $this->hasMany('App\Meal');
+	}
 }
