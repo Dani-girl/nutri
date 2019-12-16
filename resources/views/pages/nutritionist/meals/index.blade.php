@@ -15,7 +15,11 @@
     <div class="row justify-content-center">
         <div class="col-md-10">
           <a href="{{ url('meal/create') }}" class="btn btn-primary">Add new meal &#43;</a>
-          <a href="" class="btn btn-secondary">Show my meals</a>
+          @if(url()->current()==url('meals'))
+            <a href="{{ url('meals/my') }}" class="btn btn-secondary">Show my meals</a>
+          @else
+            <a href="{{ url('meals') }}" class="btn btn-secondary">All meals</a>
+          @endif
             <div class="nutri-request-text">
                 List of meals.
             </div>

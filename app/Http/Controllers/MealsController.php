@@ -5,10 +5,18 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Meal;
 use App\Nutritionist;
+use App\Allergy;
 
 class MealsController extends Controller
 {
     public function index(){
+        //****DINAMICNI UNOS ALERGIJA**** JEDNOM SE IZVRSAVA
+        // $allergies = collect(['peanuts', 'eggs', 'gluten', 'fish', 'soya', 'milk', 'tree nuts', 'celery', 'sesame']);
+        // foreach ($allergies as $allergy) {
+        //     $newA = new Allergy;
+        //     $newA->name = $allergy;
+        //     $newA->save();
+        // }
     	$meals = Meal::all();
     	return view('pages.nutritionist.meals.index')->with(compact('meals'));
     }
@@ -33,5 +41,10 @@ class MealsController extends Controller
     public function show($id){
     	$meal = Meal::find($id);
     	return view('pages.nutritionist.meals.show')->with(compact('meal'));
+    }
+
+    public function myMeals(){
+        $meals = Meal::where('nutritionist_id', auth()->user()->nutritionist->id)->get();
+        return view('pages.nutritionist.meals.index')->with(compact('meals'));
     }
 }

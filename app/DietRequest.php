@@ -18,4 +18,7 @@ class DietRequest extends Model
     {
         return $this->belongsTo('App\Nutritionist');
     }
+    public function weekMealPlan(){
+        return $this->hasMany('App\WeekMealPlan');
+    }
 }

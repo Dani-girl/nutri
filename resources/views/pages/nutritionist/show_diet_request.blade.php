@@ -61,6 +61,22 @@
                   <td>{{$diet_request->physical_activity}}</td>
                 </tr>
                 <tr>
+                  <th>Allergies:</th>
+                  <td>
+                    @if(count($diet_request->client->allergy) == null)
+                      No allergies
+                    @else
+                      @foreach($diet_request->client->allergy as $allergy)
+                        {{$allergy->name}}
+                        @if($loop->last)
+                        @else
+                          ,
+                        @endif
+                      @endforeach
+                    @endif
+                  </td>
+                </tr>
+                <tr>
                   <th scope="row">Meals per day:</th>
                   <td colspan="10">{{$diet_request->meals_per_day}}</td>
                 </tr>

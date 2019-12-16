@@ -1,51 +1,5 @@
 @extends('layouts.app')
 
-@push('head')
-<style type="text/css">
-	.hide{
-		display: hide;
-	}
-</style>
-<script type="text/javascript">
-	// function showJobForm() {
-	//   	var x = document.getElementById("jobForm");
-	//     x.style.display = "flex";
-	// }
-	// function hideJobForm() {
-	//   	var x = document.getElementById("jobForm");
-	//     x.style.display = "none";
-	// }
-
-	function showJobForm() {
-	  	var x = document.getElementById("jobForm");
-	    x.innerHTML = '<div class="col-md-4"><label for="job_type">Type of job</label><select class="form-control" id="job_type" name="job_type" required><option selected="true" disabled></option><option value="very active">Very active</option><option value="active">Active (sitting, standing, walking)</option><option value="sitting">Mostly sitting</option><option value="standing">Mostly standing</option></select></div><div class="col-md-2"><label for="job_hours">Job hours (Weekly)</label><input class="form-control" type="number" id="job_hours" name="job_hours" required></div><br>';
-	}
-	function hideJobForm() {
-	  	var x = document.getElementById("jobForm");
-	    x.innerHTML = "";
-	}
-
-	function showPastDietsForm() {
-	  	var x = document.getElementById("pastDietForm");
-	    x.innerHTML = '<div class="col-4"><label for="past_diets_title">Name of diet</label><input class="form-control" type="text" name="past_diets_title" id="past_diets_title"></div><div class="col-6"><label for="past_diets_description">Describe the diet</label><input class="form-control" type="text" name="past_diets_description" id="past_diets_description"></div><div class="col-2"><label for="past_diets_success_rate">Success rate</label><select class="form-control" id="past_diets_success_rate" name="past_diets_success_rate" required><option selected="true" disabled></option><option value="very successful">Very successful</option><option value="successful">Successful</option><option value="good">Good</option><option value="bad">Bad</option></select></div><br>';
-	}
-	function hidePastDietsForm() {
-	  	var x = document.getElementById("pastDietForm");
-	    x.innerHTML = "";
-	}
-
-
-	function checkJobFormStatus(){
-		var x = document.getElementById('jobForm');
-		if (x.style.display=='flex'){
-			return true;
-		}else{
-			return false;
-		}
-	}
-</script>
-@endpush
-
 @section('content')
 <div class="container">
 	<p>To get started with your diet, fill the form bellow:</p>
@@ -112,6 +66,26 @@
         </div>
         <div class="form-group row">
         	<div class="col-md-10">
+        		<h5>Check boxes if you are allergic to:</h5>
+        		@foreach($allergies as $allergy)
+        			<div class="form-check form-check-inline">
+				  	<input name="allergies[]" class="form-check-input" type="checkbox" id="allergy{{$allergies->search($allergy)}}" value="{{$allergy->name}}">
+				  	<label class="form-check-label" for="allergy{{$allergies->search($allergy)}}">{{$allergy->name}}</label>
+				</div>
+				
+        		@endforeach
+        		<div class="form-check form-check-inline">
+				  	<input name="allergies[]" class="form-check-input" type="checkbox" id="allergy{{$allergies->count()}}" value="pekmez">
+				  	<label class="form-check-label" for="allergy{{$allergies->count()}}">pekmez</label>
+				</div>
+				<div class="form-check form-check-inline">
+				  	<input name="allergies[]" class="form-check-input" type="checkbox" id="allergy{{$allergies->count()+1}}" value="med">
+				  	<label class="form-check-label" for="allergy{{$allergies->count()+1}}">med</label>
+				</div>
+        	</div>
+        </div>
+        <div class="form-group row">
+        	<div class="col-md-10">
         		Are you vegan, vegeterian or normal<br>
         		<div class="form-check form-check-inline">
 	        		<input class="form-check-input" type="radio" name="diet_type" id="vegan" value="vegan">
@@ -141,25 +115,6 @@
         	</div>
         </div>
         <div class="form-group row" id="pastDietForm">
-
-        </div>
-        
-        
-        <h3>Job info</h3>
-        <div class="form-group row">
-	        <div class="col-md-10">
-	        	Are you empoyed?<br>
-		        <div class="form-check form-check-inline">
-				  	<input class="form-check-input" type="radio" name="employed_status" id="jobFormYes" onclick="showJobForm()">
-				  	<label class="form-check-label" for="jobFormYes">Yes</label>
-				</div>
-				<div class="form-check form-check-inline">
-				  	<input class="form-check-input" type="radio" name="employed_status" id="jobFormNo" onclick="hideJobForm()">
-				  	<label class="form-check-label" for="jobFormNo">No</label>
-				</div>
-			</div>
-		</div>
-        <div class="form-group row" id="jobForm">
 
         </div>
         

@@ -54,3 +54,8 @@ Route::get('meals', 'MealsController@index');
 Route::get('meal/create', 'MealsController@create');
 Route::post('meal', 'MealsController@store');
 Route::get('meal/{meal}', 'MealsController@show');
+Route::get('meals/my', 'MealsController@myMeals');
+
+//week meal plan
+Route::get('week-meal-plan/create', 'WeekMealPlansController@create');
+Route::post('week-meal-plan', 'WeekMealPlansController@store');

@@ -18,6 +18,9 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <!-- Custom -->
+    @stack('head')
 </head>
 <body data-spy="scroll" data-target=".navbar">
     

@@ -13,9 +13,10 @@ class Meal extends Model
     public function nutritionist(){
     	return $this->belongsTo('App\Nutritionist');
     }
-
-    public function ingredients()
-    {
-        return $this->belongsToMany('App\Ingredient');
+    public function dailyMealPlan(){
+        return $this->belongsTo('App\DailyMealPlan');
+    }
+    public function customIngredients(){
+        return $this->belongsTo('App\CustomIngredients');
     }
 }

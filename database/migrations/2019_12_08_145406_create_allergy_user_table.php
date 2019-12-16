@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAllergiesUsersTable extends Migration
+class CreateAllergyUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateAllergiesUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('allergies_users', function (Blueprint $table) {
+        Schema::create('allergy_user', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('allergy_id');
             $table->foreign('allergy_id')
@@ -34,6 +34,6 @@ class CreateAllergiesUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('allergies_users');
+        Schema::dropIfExists('allergy_user');
     }
 }
