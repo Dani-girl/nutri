@@ -24,7 +24,7 @@ class DietRequestsController extends Controller
 	}
 
     public function index(){
-    	$diet_requests = DietRequest::all();
+    	$diet_requests = DietRequest::where('nutritionist_id', null)->get();
     	return view('pages.nutritionist.diet_requests')->with(compact('diet_requests'));
     }
 
@@ -124,7 +124,7 @@ class DietRequestsController extends Controller
         return redirect('home')->with('status', 'Your request has been sent, waiting for nutritionists response');
     }
 
-    protected function showClient(){
+    protected function showMyDietRequest(){
     	$diet_request = DietRequest::where('client_id', (auth()->user()->id))->first();
     	return view('pages.client.show_clients_diet_request')->with(compact('diet_request'));
     }
@@ -132,5 +132,10 @@ class DietRequestsController extends Controller
     public function show($id){
     	$diet_request = DietRequest::find($id);
     	return view('pages.nutritionist.show_diet_request')->with(compact('diet_request'));
+    }
+
+    public function myClients(){
+        $diet_requests = DietRequest::where('nutritionist_id', auth()->user()->nutritionist->id)->get();
+        return view('pages.nutritionist.my_clients')->with(compact('diet_requests'));
     }
 }

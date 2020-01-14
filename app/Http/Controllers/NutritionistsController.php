@@ -13,6 +13,11 @@ use App\Mail\ApprovedNutritionistRequest;
 
 class NutritionistsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('checkAdmin');
+    }
+
     public function index(){
         $nutritionists = Nutritionist::all();
         return view('pages.admin.nutritionists')->with(compact('nutritionists'));

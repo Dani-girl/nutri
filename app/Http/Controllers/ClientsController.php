@@ -7,6 +7,11 @@ use App\User;
 
 class ClientsController extends Controller
 {
+	public function __construct()
+    {
+        $this->middleware('checkAdmin');
+    }
+    
     public function index(){
     	$clients = User::where('role', 4)->get();
     	return view('pages.admin.clients')->with(compact('clients'));

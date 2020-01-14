@@ -48,7 +48,7 @@ class NutritionistRequestsController extends Controller
 
     public function show($id){
         $request = NutritionistRequest::find($id);
-        $role = auth() -> user() -> role;
+        //$role = auth() -> user() -> role;
 
         // if( $role !== Roles::ADMIN && $role !== Roles::SUPERADMIN){
         //     return redirect('/home') -> with('error', 'Unauthorized Page');
