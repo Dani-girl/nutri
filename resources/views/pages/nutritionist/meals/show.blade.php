@@ -77,6 +77,9 @@
             </table>
             
             <a class="btn btn-secondary" href="{{ url('meals') }}">Go back</a>
+            @if($meal->nutritionist_id == auth()->user()->nutritionist()->first()->id)
+            <a class="btn btn-primary" href="{{ url('meals/'.$meal->id.'/edit') }}">Edit meal</a>
+            @endif
         </div>
     </div>
 </div>

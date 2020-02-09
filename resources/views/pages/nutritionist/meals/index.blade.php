@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="row justify-content-center">
-    <div class="col-md-8">
+    <div class="col-md-10">
         @if (session('status'))
             <div class="alert alert-success" role="alert">
                 {{ session('status') }}
@@ -16,10 +16,15 @@
         <div class="col-md-10">
           <a href="{{ url('meal/create') }}" class="btn btn-primary">Add new meal &#43;</a>
           @if(url()->current()==url('meals'))
-            <a href="{{ url('meals/my') }}" class="btn btn-secondary">Show my meals</a>
+            <a href="{{ url('my-meals') }}" class="btn btn-secondary">Show my meals</a>
           @else
             <a href="{{ url('meals') }}" class="btn btn-secondary">All meals</a>
           @endif
+
+          @if($meals->first()==null)
+            <br><br>
+            <h3>No meals to show. Create a meal first.</h3>
+          @else
             <div class="nutri-request-text">
                 List of meals.
             </div>
@@ -46,6 +51,7 @@
                     @endforeach
                   </tbody>
                 </table>
+              @endif
             </div>
         </div>
     </div>

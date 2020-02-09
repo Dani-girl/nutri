@@ -133,51 +133,78 @@
 			</div>
 			<form method="POST" action="{{ url('week-meal-plan') }}">
 				{{csrf_field()}}
-				
+
 				@for($i = 1; $i < 8; $i++)
+
 				<div id="day{{$i}}" @if ($i==1)
-	        							class="show"
-	        						@else
-	        							class="hide"
-	    							@endif>
+				        							class="show"
+				        						@else
+				        							class="hide"
+				    								@endif>
 	    			<h3>Day {{$i}}</h3>
 
 	    			@foreach($meal_types as $meal_type)
 
-	    			
 	    			<h5>{{$meal_type}}</h5>
-					<div class="form-group row">
-						<div class="col-md-12">
-							<label for="">Chose a meal:</label>
-							<select class="form-control" id="{{$meal_type}}_id{{$i}}" name="{{$meal_type}}_id{{$i}}" onchange="showOriginalIngredients('{{$meal_type}}_id{{$i}}','{{$meal_type}}_id{{$i}}_txt')">     		
-								<option selected="true" disabled></option>
-								@foreach($meals as $meal)
-								
-								<option value="{{$meal->id}}">{{$meal->title}}</option>
-								
-								@endforeach
-							</select>
-						</div>
-					</div>
-					<div class="form-group row" id="{{$meal_type}}_id{{$i}}_txt">
-						<div class="col-md-12">
-							<b>Original meal's ingredients:</b><br>
-						</div>
-					</div>
-					<div id="buttonEx{{$i}}" class="btn btn-primary" onclick="toggleIngredients('buttonEx{{$i}}' ,'this{{$i}}')">Customize ingredients</div><br><br>
-					<div id='this{{$i}}' class="hide">
 						<div class="form-group row">
 							<div class="col-md-12">
-								<label for="breakfast_ingredients_{{$i}}">Breakfast custom ingredients:</label>
-								<textarea class="form-control" name="breakfast_ingredients_{{$i}}" id="this{{$i}}_txta"></textarea>
+								<label for="{{$meal_type}}_id{{$i}}">Chose a meal:</label>
+								<select class="form-control" id="{{$meal_type}}_id{{$i}}" name="{{$meal_type}}_id{{$i}}" onchange="showOriginalIngredients('{{$meal_type}}_id{{$i}}','{{$meal_type}}_id{{$i}}_txt')">     		
+									
+
+									@foreach($meals as $meal)
+									@if($meal -> meal_type == preg_replace('/[0-9]+/', '', strtolower($meal_type)))
+									<option value="{{$meal->id}}">{{$meal->title}}</option>
+									@endif
+									@endforeach
+
+								</select>
 							</div>
-						
 						</div>
-					</div>
-					
-					@endforeach
+						<div class="form-group row" id="{{$meal_type}}_id{{$i}}_txt">
+							<div class="col-md-12">
+								<b>Original meal's ingredients:</b><br>
+							</div>
+						</div>
+						<div id="button{{$meal_type}}{{$i}}" class="btn btn-primary" onclick="toggleIngredients('button{{$meal_type}}{{$i}}' ,'this{{$meal_type}}{{$i}}')">Customize ingredients</div><br><br>
+						<div id='this{{$meal_type}}{{$i}}' class="hide">
+							<div class="form-group row">
+								<div class="col-md-12">
+									<label for="{{$meal_type}}_ingredients{{$i}}">{{$meal_type}} custom ingredients:</label>
+									<textarea class="form-control" name="{{$meal_type}}_ingredients{{$i}}" id="this{{$meal_type}}{{$i}}_txta"></textarea>
+								</div>
+							</div>
+						</div>
+						<hr>
+
+						@endforeach
+
 				</div>
+
 				@endfor
+
+					<div class="form-group row">
+							<div class="col-md-12">
+						   	<label for="avoid">Food to avoid</label>
+						   	<textarea class="form-control" name="avoid" id="avoid"></textarea>
+						   </div>
+						</div>
+						<div class="form-group row">
+							<div class="col-md-12">
+						   	<label for="exercise_plan">Exercise plan</label>
+						   	<textarea class="form-control" name="exercise_plan" id="exercise_plan"></textarea>
+						   </div>
+						</div>
+						<div class="form-group row">
+							<div class="col-md-12">
+							<label for="explanation">Explanation</label>
+							  	<textarea class="form-control" name="explanation" id="explanation"></textarea>
+							  </div>
+						</div>
+						<input type="hidden" name="diet_request_id" value="{{$diet_request -> id}}">
+					<button class="btn btn-primary" type="submit">
+						Submit meal diet plan
+					</button>
 			</form>
 		</div>
 	</div>

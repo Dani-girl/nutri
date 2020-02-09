@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCustomIngredientsTable extends Migration
+class CreateDailyPlanMeal extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,17 @@ class CreateCustomIngredientsTable extends Migration
      */
     public function up()
     {
-        Schema::create('custom_ingredients', function (Blueprint $table) {
+        Schema::create('daily_plan_meal', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('daily_plan_id');
+            $table->foreign('daily_plan_id')
+                  ->references('id')
+                  ->on('daily_plans');
             $table->unsignedBigInteger('meal_id');
             $table->foreign('meal_id')
                   ->references('id')
                   ->on('meals');
-            $table->string('ingredients');
+            $table->string('custom_ingredients')->nullable();
             $table->timestamps();
         });
     }
@@ -31,6 +35,6 @@ class CreateCustomIngredientsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('custom_ingredients');
+        Schema::dropIfExists('daily_plan_meal');
     }
 }

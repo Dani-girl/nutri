@@ -102,6 +102,9 @@
                                     <a class="nav-link" href="">My profile</a>
                                 </li>
                                 <li class="nav-item">
+                                    <a class="nav-link" href="{{ url('my-clients') }}">My clients</a>
+                                </li>
+                                <li class="nav-item">
                                     <a class="nav-link" href="{{ url('diet-requests') }}">Requests board</a>
                                 </li>
                                 <li class="nav-item">
